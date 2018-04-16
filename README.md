@@ -2,6 +2,8 @@
 
 This lab will walk you through a few benchmark tests to understand TensorFlow and MXNet performance on the p3 platform.
 
+!(images/tensorflow.png) !(images/mxnet.jpg) !(images/v100.jpg)
+
 ## Launch the AMI
 
 1. From the instance launch screen, choose the "Deep Learning AMI (Amazon Linux) Version 7.0".  In us-west-2, this is ami-e42f499c.
