@@ -12,7 +12,7 @@ This lab will walk you through a few benchmark tests to understand TensorFlow an
 
 ## Comparing throughput of FP16 to FP32 calculations
 
-For the first test, we're going to compare the performance of TensorFlow when using 32-bit and 16-bit variable lengths.  32 bit (single precision or FP32) and even 64-bit (double precision or FP64) calculations are popular for many applications that require high prececision calculations.  However, deep learning is more resiliant to lower precision due to the way that backpropagaion algorithms work.  Many people find that the reduction in memory usage and increase in speed gained by moving to half or mixed precision (16-bit or FP16) are worth the minor trade offs in accuracy.
+For the first test, we're going to compare the performance of TensorFlow when using 32-bit and 16-bit variable lengths.  32 bit (single precision or FP32) and even 64-bit (double precision or FP64) floating point variables are popular for many applications that require high prececision.  These are workloads like engineering simulations where you're simulating real world behavior and need the mathemtical models to be as exact as possible.  However, deep learning is more resiliant to lower precision due to the way that backpropagaion algorithms work.  Many people find that the reduction in memory usage and increase in speed gained by moving to half or mixed precision (16-bit or FP16) are worth the minor trade offs in accuracy.
 
 Let's test the performance difference we get when running in FP32 vs FP16.
 
