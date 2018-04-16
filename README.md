@@ -38,6 +38,8 @@ Let's test the performance difference we get when running in FP32 vs FP16.
 
 We're looking for the throughput number in order to measure performance.  You should see a number around 400 samples/second.
 
+If you'd like to view the CPU usage while this is running, you can run "nvidia-smi" from another terminal while it's running.
+
 6. Run the 16-bit (mixed precision) benchmark
 
 Now let's see what happens when we change the precision from the default 32-bit, to the 16-bit supported on the V100 GPU.  Note that we can increase the batch size because FP16 requires less memory.
