@@ -1,14 +1,18 @@
 # Accelerating Deep Learning Training with P3's and V100
 
-This lab will walk you through a few benchmark tests using TensorFlow and MXNet on the p3 platform.
+This lab will walk you through a few benchmark tests to understand TensorFlow and MXNet performance on the p3 platform.
 
 ## Launch the AMI
 
 1. From the instance launch screen, choose the "Deep Learning AMI (Amazon Linux) Version 7.0".  In us-west-2, this is ami-e42f499c.
 1. Choose a "p3.2xlarge" instance
-1. Launch in any VPC/subnet with public internet access 
+1. Launch in any Subnet & Security Group with public SSH access 
 
 ## Comparing throughput of FP16 to FP32 calculations
+
+For the first test, we're going to compare the performance of TensorFlow when using 32-bit and 16-bit variable lengths.  32 bit (single precision or FP32) and even 64-bit (double precision or FP64) calculations are popular for many applications that require high prececision calculations.  However, deep learning is more resiliant to lower precision due to the way that backpropagaion algorithms work.  Many people find that the reduction in memory usage and increase in speed gained by moving to half or mixed precision (16-bit or FP16) are worth the minor trade offs in accuracy.
+
+Let's test the performance difference we get when running in FP32 vs FP16.
 
 1. Log into the instance and CD to the home directory
 
@@ -26,19 +30,19 @@ This lab will walk you through a few benchmark tests using TensorFlow and MXNet 
 
   ```cd tf-benchmark-src/scripts/tf_cnn_benchmarks/```
 
-5. Run the 32bit benchmark
+5. Run the 32-bit benchmark
 
   ```python tf_cnn_benchmarks.py --variable_update=replicated --model=resnet50 --batch_size=128 --num_batches=100 --loss_type_to_report=total_loss --num_gpus=1 --single_l2_loss_op=True --local_parameter_device=cpu --all_reduce_spec=pscpu```
 
 We're looking for the throughput number in order to measure performance.  You should see a number around 400 samples/second.
 
-6. Run the 16bit (mixed precision) benchmark
+6. Run the 16-bit (mixed precision) benchmark
 
-Now let's see what happens when we change the precision from the default 32 bit, to the 16 bit supported on the V100 GPU.
+Now let's see what happens when we change the precision from the default 32-bit, to the 16-bit supported on the V100 GPU.  Note that we can increase the batch size because FP16 requires less memory.
 
   ```python tf_cnn_benchmarks.py --variable_update=replicated --model=resnet50 --batch_size=256 --use_fp16=True --num_batches=100 --loss_type_to_report=total_loss --num_gpus=1 --single_l2_loss_op=True --local_parameter_device=cpu --all_reduce_spec=pscpu```
 
-By taking advantage of the mixed precision capabilities introduced in Pascal (and also available in Volta), you can see we're doubling the throughput with no impact to precision.
+By taking advantage of the mixed precision capabilities introduced in Pascal (and also available in Volta), you can see we're doubling the throughput.
 
 
 ## Running a full ImageNet training
