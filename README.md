@@ -1,8 +1,8 @@
 # Accelerating Deep Learning Training with P3's and V100
 
-This lab will walk you through a few benchmark tests to understand TensorFlow and MXNet performance on the p3 platform.
+<img src="images/tensorflow.png" height='150'><img src="images/mxnet.jpg" height='110'><img src="images/v100.jpg" height='150'>
 
-![tensorflow logo](images/tensorflow.png) ![mxnet logo](images/mxnet.jpg) ![v100 image](images/v100.jpg)
+This lab will walk you through a few benchmark tests to understand TensorFlow and MXNet performance on the p3 platform.
 
 ## Launch the AMI
 
