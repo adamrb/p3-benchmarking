@@ -2,7 +2,7 @@
 
 This lab will walk you through a few benchmark tests to understand TensorFlow and MXNet performance on the p3 platform.
 
-!(images/tensorflow.png) !(images/mxnet.jpg) !(images/v100.jpg)
+![tensorflow logo](images/tensorflow.png) ![mxnet logo](images/mxnet.jpg) ![v100 image](images/v100.jpg)
 
 ## Launch the AMI
 
