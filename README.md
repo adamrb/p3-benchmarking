@@ -73,10 +73,6 @@ Now we're going to actually train an image classification neural network with th
 
 5. Copy the training and validation data locally
 
-  ```aws s3 cp s3://ragab-datasets/imagenet2012/imagenet1k-val.rec . --no-sign-request```
-
-  ```aws s3 cp s3://ragab-datasets/imagenet2012/imagenet1k-train.rec . --no-sign-request```
-
 6. Download the training source code
 
   ```cd ~/ && git clone --recursive https://github.com/apache/incubator-mxnet.git mxnet-src```
